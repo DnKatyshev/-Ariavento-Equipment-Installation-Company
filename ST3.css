@@ -1,0 +1,939 @@
+/*=======Обнуляющие стили========*/
+*,
+*:before,
+*:after{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+*::selection{
+    background-color: #BDAE82;
+    color: #fff;
+}
+html, body{
+	height: 100%;
+	width: 100%;
+	font-size: 14px;
+	font-weight: 400;
+	font-family: Raleway;
+	color: #000;
+}
+body{
+	overflow-x: clip;
+}
+:focus, :active{
+	outline: none;
+}
+ a, a:visited, a:focus, a:hover{
+	text-decoration: none;
+    cursor: pointer;
+}
+button{
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+li{
+	list-style: none;
+}
+input:focus::placeholder{
+	color: transparent;
+	transition: all 0.2s ease;
+}
+.container{
+	max-width: 1260px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+.wrapper{
+    min-height: 100%;
+	display: flex;
+    flex-direction: column;
+}
+main{
+	flex: 1 1 auto;
+}
+body.fixed-page{
+	overflow: clip;
+}
+section{
+	
+}
+.button__page__up{
+	display: none;
+	position: fixed;
+	right: 30px;
+	top: 70%;
+	cursor: pointer;
+	z-index: 50;
+}
+/*=======Обнуляющие стили СВЕРХУ========*/
+
+
+
+/* ============= HEADER ============ */
+header{
+    max-width: 100%;
+    padding: 22px 0;
+	position: relative;
+}
+.header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	position: relative;
+}
+
+.logo::after{
+	display: inline-block;
+	content: 'Группа компаний «Алекс Инижиниринг»';
+	max-width: 158px;
+    font-weight: 400;
+	margin-left: 20px;
+	color: #000;
+}
+
+.contact {
+    display: flex;
+	align-items: center;
+	color: #000;
+	column-gap: 15px;
+}
+.contact__main{
+	display: flex;
+	column-gap: 30px;
+}
+/* Почему не работает анимация? dasharray и dashoffset поидее должны были 
+скрыть значки. А при ховере они должны постепенно отрисовываться*/
+.header__top__contact:hover path{
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+	fill: #0A69F9;
+}
+.header__top__contact path{
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+}
+
+
+.header__bottom{
+	max-width: 100%;
+	min-height: 63px;
+	background: #0A69F9;
+	margin: 22px 0 32px 0;
+	border-radius: 12px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.header__nav {
+}
+.header__menu {
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	column-gap: 35px;
+}
+.header__item, .header__button {
+	color: #fff;
+	font-size: 14px;
+}
+.header__item:hover{
+	opacity: 0.8;
+}
+
+.header__button {
+	border: 1px solid #fff;
+	padding: 14px 20px;
+	min-width: 160px;
+	max-height: 43px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.menu-burger{
+	display: none;
+}
+
+
+/*===========Попап===============*/
+.popup__overlay{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	background: rgba(230, 240, 254, .7);
+	backdrop-filter: blur(1px);
+	transition: all 0.5s ease;
+	z-index: 100;
+	opacity: 0;
+  	visibility: hidden;
+}
+.active{
+	opacity: 1;
+  	visibility: visible;
+}
+.popup{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 400px;
+    height: 300px;
+}                      
+.popup img{
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+.popup p{
+	text-align: center;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	color: brown;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+
+
+/* ===============MAIN============== */
+section{
+	padding: 50px 0;
+}
+.layout__body {
+	background: url('images/header_img/header-fon.png') center/cover no-repeat;
+}
+.layout__text {
+	padding: 94px 0 140px 58px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	max-width: 604px;
+}
+.layout__text h1{
+	font-weight: 700;
+	font-size: calc(18px + 34*(100vw/1260));
+}
+.layout__text h2{
+	font-size: calc(16px + 12*(100vw/1260));
+	font-weight: inherit;
+}
+.layout__buttons {
+	display: flex;
+	gap: 22px;
+}
+.layout__link-1, .layout__link-2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-height: 62px;
+	font-size: 20px;
+	border-radius: 10px;
+	font-weight: 400;
+	transition: all 0.5s ease;
+}
+.layout__link-1:hover, .layout__link-2:hover{
+	transform: translateY(-5px);
+}
+.layout__link-1{
+	min-width: 262px;
+	max-width: 300px;
+	background: #0A69F9;
+	color: #fff;
+	padding: 18px 53px;
+}
+.layout__link-2 {
+	min-width: 286px;
+	border: 1px solid #0A69F9;
+	background: #fff;
+	color: #0A69F9;
+	padding: 18px 26px;
+}
+
+@media(max-width: 998px) {
+	.logo::after, .layout__link-2, .header__button{
+		display: none;
+	}
+	.header__top__contact {
+		font-size: 12px;
+	}
+	.layout__link-1{
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+	.layout__text{
+		padding: 60px 10px 110px 10px;
+		text-align: center;
+		margin: 0 auto;
+	}
+	.header__top__contact:nth-child(2){
+		display: none;
+	}
+}
+
+
+/*================Burger-menu===768===========*/
+.header__nav__contacts, .menu__logo{
+	display: none;
+}
+@media(max-width: 768px) {
+	
+	.header__nav__contacts{
+		font-size: 16px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 15px;
+	}
+	.header__nav{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		gap: 65px;
+		padding: 50px 30px;
+		overflow: scroll;
+	}
+
+
+	.menu__logo{
+		display: block;
+	}
+	.contact__main{
+		display: none;
+	}
+	.header__bottom{
+		display: none;
+	}
+	.logo svg{
+		width: 160px;
+	}
+	.header__bottom.active{
+	background: #0A69F9;
+	border-radius: 0;
+	width: 100vw;
+	height: calc(100vh - 80px);
+	display: block;
+	margin-right: -20px;
+	
+}
+	.header__menu {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.header__item{
+	font-size: 18px;
+	font-weight: 700;
+}
+	.menu-burger{
+		display: block;
+		position: absolute; 
+		line-height: 50px;
+		width: 35px;
+		height: 35px;
+		right: 0;
+	}
+		.menu-burger span, .menu-burger:after, .menu-burger:before{
+		height: 3px;
+		width: inherit;
+		position: absolute;    
+		background: #0A69F9;
+		margin: 0 auto;
+		transition: all 0.5s ease 0s;
+	}
+		.menu-burger span{
+		top: 16px;
+	}
+		.menu-burger:after, .menu-burger:before{
+		content: '';
+	}
+		.menu-burger:after{
+		bottom: 5px;
+	}
+		.menu-burger:before{
+		top: 5px;
+	}
+	
+	.menu-burger.open-menu{
+		;
+	}
+	.menu-burger.open-menu span {
+		opacity:0; 
+		transition: all 0.2s ease 0s;
+	
+	}
+	.menu-burger.open-menu:before {
+		transform: rotate(38deg);
+		top: 16px;
+		transition: all 0.4s ease 0s;
+	}
+	.menu-burger.open-menu:after {
+		transform: rotate(-38deg);
+		bottom: 16px;
+		transition: all 0.4s ease 0s;
+	}
+
+	section{
+		padding: 40px 0;
+	}
+}
+@media(max-width: 340px){
+	.header__nav__contacts{
+		row-gap: 15px;
+	}
+	.header__nav{
+		padding: 30px 30px;
+	}
+}
+
+/* ===============PRODUCTION============== */
+
+.section-title {
+	font-size: calc(20px + 10*(100vw/1260));
+    font-weight: 700;
+	margin-bottom: 55px;
+	display: inline-block;
+	cursor: pointer;
+}
+.section-title:after{
+	content: "";
+    display: block;
+    width: 0%;
+    height: 3px;
+    background-color: #4F8FF0;
+    position: relative;
+    transition: all 0.5s ease 0s;
+	top: 3px;
+}
+.section-title:hover:after{
+	width: 100%;
+}
+
+
+.production__content {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: center;
+}
+.production__item {
+	flex: 1 0 auto;
+	border: 1px solid #0A69F9;
+	border-radius: 12px;
+	padding: 20px;
+	max-width: 380px;
+	cursor: pointer;
+}
+.production__item:hover{
+	border: 1px solid #4a90fb;
+}
+.production__item:hover svg path{
+	fill: #0A69F9;
+}
+.production__item img{
+	transition: all 0.5s ease;
+}
+.production__item:hover img{
+	transform: scale(105%);
+}
+.layout__link-1-production{
+	margin: 50px auto 0 auto;
+
+}
+
+.production__title{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 90px;
+}
+.production__title p{
+	font-size: 30px;
+	font-weight: 700;
+}
+.production__subtitle {
+	color: #1D293A;
+}
+@media(max-width: 1200px){
+
+	.production__item {
+		max-width: 300px;
+	}
+	.production__item img{
+		max-width: 100%;
+	}
+	.production__title p{
+		font-size: 20px;
+	}
+}
+@media(max-width: 992px){
+	.production__item {
+		max-width: 100%;
+	}
+}
+
+
+
+/* ===============COMPANY===НА Гридах=========== */
+.company__content{
+	display: grid;
+grid-template: repeat(3, minmax(100px, 255px)) / repeat(3, minmax(300px, 388px));
+	gap: 30px;
+}
+.company__text {
+	font-size: 20px;
+	max-width: 400px;
+	grid-column: span 2;
+	min-height: 240px;
+}
+.company__item {
+	position: relative;
+	background: rgba(10, 105, 249, 0.1);
+	padding: 20px;
+	border-radius: 12px;
+	display: flex;
+	align-items: flex-end;
+}
+.company__title {
+	color: #0A69F9;
+	font-size: calc(20px + 10*(100vw/1260));
+	font-weight: 700;
+}
+.company__item img{
+	max-width: 120px;
+	margin-bottom: 80px;
+}
+@media(max-width: 1100px){
+	.company__content{
+		grid-template: repeat(4, 250px) / repeat(2, 50%);
+	}
+	.company__text {
+		grid-column: span 1;
+		font-size: 18px
+	}
+}
+
+/* Как сделать адаптив текста на гридах? */
+@media(max-width: 768px){
+	.company__content{
+		grid-template: repeat(8, auto) / repeat(1, 100%);
+	}
+	.company__text {
+		font-size: 16px;
+		max-width: 100%;
+	}
+	.company__item img{
+		max-width: 80px;
+		max-height: 55px;
+		margin-bottom: 0px;
+	}
+	.company__item{
+		justify-content: space-between;
+		align-items: center;
+	}
+	.company .section-title{
+		margin-bottom: 0;
+	}
+}
+
+ /* ===============Slider's Style=========== */
+ .swiper-slide{
+	text-align: center;
+	min-height: ;
+ }
+.swiper-slide img{
+	/* object-fit: cover;   он влияет здесь на что-то?*/
+	max-width: 100%;
+}
+.sw-pagination{
+	margin-top: 10px;
+	text-align: center;
+}
+
+.swiper-pagination-bullet{
+	background: #0A69F9;
+	width: 8px;
+	height: 8px;
+	opacity: 0.4;
+}
+.swiper-pagination-bullet-active{
+	opacity: 1;
+}
+.factory__item img{
+	padding: 10px;
+	min-height: 250px;
+	object-fit: cover;
+}
+.swiper-button-prev{
+	background-image: url('images/sliders_img/arrow-prev.svg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	width: 30px;
+	height: 30px;
+  }
+  .swiper-button-next{
+	background-image: url('images/sliders_img/arrow-next.svg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	width: 30px;
+	height: 30px;
+  }
+  .swiper-button-next-active{
+	background-image: url('images/sliders_img/arrow-next-active.svg');
+  }
+  .swiper-button-prev::after, .swiper-button-next::after {
+	display: none;
+  }
+
+
+  
+/* ==========Projects========= */
+.projects__content {
+	display: grid;
+	grid-template: repeat(4, auto) / repeat(3, minmax(300px, 388px));
+	gap: 25px;
+}
+.projects__item {
+	border: 1px solid #0A69F9;
+	border-radius: 12px;
+}
+.six{
+	grid-column: span 3;
+	max-height: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+}
+.act_grid{
+	max-height: 500px;
+	visibility: visible;
+}
+/* Почему если убрать  min-height, некоторые картинки "теряют" высоту?*/
+.projects__item img{
+	width: 100%;
+	min-height: 250px;
+	object-fit: cover;
+	border-radius: 12px;
+}
+.projects__item:nth-child(2){
+	grid-column: span 2;
+	grid-row: span 2;
+}
+.projects__item:nth-child(4){
+	grid-column: span 2;
+}
+.projects__title {
+	font-size: 30px;
+	font-weight: 700;
+	display: inline-block;
+	text-align: start;
+	color: #000;
+	margin: 0 5px;
+}
+.projects__subtitle {
+	font-size: 20px;
+	text-align: start;
+	max-width: 452px;
+	margin: 0 5px 20px 5px;
+}
+
+.project__button{
+	max-width: 380px;
+	min-width: 300px;
+	padding: 24px 40px;
+	border: 2px solid #0A69F9;
+	background: transparent;
+	color: #0A69F9;
+	font-size: 20px;
+	border-radius: 10px;
+	margin: 40px auto 0 auto;
+	display: block;
+	transition: all 0.3s ease;
+}
+.project__button:hover{
+	opacity: 0.8;
+}
+
+/* Слайдер уходит */
+@media(max-width: 992px){
+	.projects__content {
+		grid-template: repeat(4, auto) / repeat(2, auto);
+	}
+	.projects__item:nth-child(2){
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+	.projects__item:nth-child(4){
+		grid-column: span 1;
+	}
+	.projects__item:nth-child(5){
+		grid-column: span 1;
+		justify-self: center;
+	}
+	.six{
+		grid-column: span 2;
+	}
+}
+
+/* Слайдер появляется - стили для грид-сетки */
+@media(max-width: 768px){
+	.projects__content{
+		display: grid;
+		grid-template: repeat(1, auto) / repeat(6, auto);
+		gap: 0;
+	}
+	.project__button{
+		display: none;
+	}
+	.six{
+		max-height: 500px;
+		visibility: visible;
+	}
+	.projects__item {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+	.projects__item img{
+		height: 300px;
+	}
+}
+
+
+
+/* ==============FORM============== */
+.form__main {
+	display: flex;
+	justify-content: space-between;
+	background: url('images/header_img/form-fon.png') center/cover no-repeat;
+	padding: 40px 30px;
+	max-height: 430px;
+	position: relative;
+	gap: 15px;
+}
+.form__block{
+	display: flex; 
+	gap: 20px;
+}
+.form__text{
+	max-width: 245px;
+}
+.form__title {
+	font-size: 30px;
+	margin-bottom: 5px;
+	font-size: calc();
+}
+.form__group {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.form__group label{
+	position: absolute;
+	left: 16px;
+	opacity: 0.6;
+	transition: all 0.2s ease;
+}
+.form__input:focus ~ label,
+.form__input:not(:placeholder-shown) ~ label{
+	font-size: 9px;
+	top: 5px;
+}
+.form__input {
+	min-width: 240px;
+	border-radius: 10px;
+	padding: 17px 14px;
+	color: red;
+	font-size: 16px;
+}
+.form__button {
+	background: #0A69F9;
+	color: #fff;
+	border-radius: 12px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 17px 40px;
+	max-height: 50px;
+	max-width: 260px;
+}
+.form__data{
+	font-size: 12px;
+	opacity: 0.6;
+	margin-top: 5px;
+	max-width: 240px;
+}
+.form__data a{
+	color: #FF00D6;
+	text-decoration: underline;
+}
+@media(max-width: 1021px){
+	.form__main, .form__block{
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+
+
+/* ================ОТЗЫВЫ============== */
+
+.reviews__content {
+	display: flex;
+	justify-content: space-between;
+}
+.reviews__item {
+	padding: 24px;
+	background: #E6F0FE;
+	text-align: left;
+	max-height: 450px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+.reviews__name{
+	display: flex;
+	column-gap: 20px;
+	align-items: center;
+	margin-top: 15px;
+}
+.reviews__name img{
+	border-radius: 12px;
+}
+.reviews__name p:first-child{
+	font-weight: 700;
+	font-size: 20px;
+}
+.reviews__text {
+	font-size: 16px;
+	overflow: hidden;
+}
+.visible{
+	;
+}
+.hidden{
+	max-height: 0;
+	transition: all 0.5s ease;
+}
+.act_hidden{
+	max-height: 150px;
+	
+}
+
+
+
+/* =============Контакты============ */
+.contacts__content{
+	display: flex;
+	justify-content: space-between;
+}
+.footer__contact p{
+	font-size: 20px;
+}
+.footer__contact svg{
+	width: 24px;
+	height: 24px;
+}
+@media(max-width: 850px){
+	.contacts__content{
+		flex-direction: column;
+		row-gap: 25px;
+	}
+}
+
+/*==============Footer-Layout=========== */
+.footer__layout{
+	background: url(images/footer_img/footer-map-fon.jpg) center/cover no-repeat;
+	position: relative;
+}
+.footer-logo{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.footer__form{
+	max-width: 330px;
+	background: #E6F0FE;
+	padding: 20px;
+	border-radius: 12px;
+}
+
+@media(max-width: 768px){
+	.footer__form{
+		display: none;
+	}
+	.footer__layout{
+		min-height: 350px;
+	}
+}
+
+
+/* =============Footer=========== */
+footer{
+	min-height: 85px;
+	background: #1D293A;
+
+}
+.footer__content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+}
+.footer__logo p:nth-child(2){
+	font-size: 12px;
+	opacity: 0.5;
+}
+.footer__logo {
+	color: #fff;
+}
+.footer__links {
+	display: flex;
+	gap: 0 20px;
+	flex-wrap: wrap;
+}
+.footer__links li a{
+	color: #fff;
+}
+.footer__links li:hover{
+	opacity: 0.8;
+}
+.footer__made {
+	font-size: 12px;
+	color: #fff;
+	opacity: 0.5;
+}
+@media(max-width: 992px){
+	.footer__content {
+		flex-direction: column;
+		padding: 30px 0;
+		gap: 30px;
+	}
+	.footer__links {
+		gap: 20px 0;
+	}
+	.footer__links li{
+		flex-basis: 30%;
+		font-size: 12px;
+	}
+	.footer__made::before{
+		content: '';
+		width: 300px;
+		height: 2px;
+		background-color: #fff;
+		opacity: 0.5;
+		display: block;
+		margin-bottom: 25px;
+	}
+}
